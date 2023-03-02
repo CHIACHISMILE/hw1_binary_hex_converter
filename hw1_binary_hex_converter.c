@@ -1,10 +1,10 @@
 // Fundamental data structure & algorithm
 // HW1_02_24_2023
 // C language, Encoding = UTF-8
-// written by 醫工三 許家齊 b812109032
+// written by 醫工三 b812109032 許家齊
 
-#include <assert.h>
 #include <stdio.h>
+#include <assert.h>
 // declare functions
 void decimal_to_binary(int num);
 void decimal_to_hexadecimal(int num);
@@ -31,7 +31,7 @@ void decimal_to_binary(int num) {
     if (num > 1) {
         decimal_to_binary(num / 2);
     }
-    printf("%d", num % 2);
+    printf("%d", num % 2);// print remainder
 }
 
 
@@ -47,14 +47,14 @@ void decimal_to_hexadecimal(int num) {
     }
 }
 
-
+// print binary 
 void print_binary(int num){
     printf("Binary = ");
     decimal_to_binary(num);
     printf("\n");
 }
 
-
+// print hexadecimal
 void print_hexadecimal(int num){
     printf("Hexadecimal = ");
     decimal_to_hexadecimal(num);
