@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
+
 // declare functions
 void decimal_to_binary(int num);
 void decimal_to_hexadecimal(int num);
@@ -12,15 +14,32 @@ void print_binary(int num);
 void print_hexadecimal(int num);
 
 // main function
-void main(){
-    int dec = 0;
-    printf("Please enter an decimal integer between 0 to 255\n");
-    while (scanf("%d", &dec) != 1) {// make sure the input was an integer
-        printf("Input errors, please re-enter :");
-        // clear input buffer
-        while (getchar() != '\n');
+int main(){
+    // declare variable
+    int dec;
+
+    while (1) {
+        printf("Please enter an integer between 0 and 255 (enter -1 to exit): ");
+        if (scanf("%d", &dec) != 1) {
+            // If the input is not an integer, clear the input buffer
+            while (getchar() != '\n');
+            printf("Input error! Please try again.\n");
+            continue;
+        }
+
+        if (dec == -1) {
+            printf("Exiting program...\n");
+            break;
+        }
+
+        // assert(dec >= 0 && dec <= 255);
+        if (dec >= 0 && dec <= 255) {
+           break;
+        } else {
+            printf("Input error! Please try again.\n");
+        }
     }
-    assert(dec >= 0 && dec <= 255);// check the integer range
+    printf("The integer you entered is: %d\n", dec);
     printf("Decimal = %d\n", dec);
     print_binary(dec);
     print_hexadecimal(dec);
