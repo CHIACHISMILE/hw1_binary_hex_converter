@@ -18,7 +18,7 @@ int main(){
     // declare variable
     int dec;
 
-    while (1) {
+    do{
         printf("Please enter an integer between 0 and 255 (enter -1 to exit): ");
         if (scanf("%d", &dec) != 1) {
             // If the input is not an integer, clear the input buffer
@@ -27,22 +27,29 @@ int main(){
             continue;
         }
 
+        // exit when input == -1
         if (dec == -1) {
-            printf("Exiting program...\n");
             break;
         }
 
         // assert(dec >= 0 && dec <= 255);
         if (dec >= 0 && dec <= 255) {
            break;
-        } else {
-            printf("Input error! Please try again.\n");
         }
+        printf("Input error! Please try again.\n");
+    
+    } while (1);
+
+    if (dec == -1) {
+        printf("Exiting program...\n");
+    }       
+
+    else {
+        printf("The integer you entered is: %d\n", dec);
+        printf("Decimal = %d\n", dec);
+        print_binary(dec);
+        print_hexadecimal(dec);
     }
-    printf("The integer you entered is: %d\n", dec);
-    printf("Decimal = %d\n", dec);
-    print_binary(dec);
-    print_hexadecimal(dec);
 }
 
 
